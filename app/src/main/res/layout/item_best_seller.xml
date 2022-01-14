@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_rv_best_seller"
+    style="@style/ContainerBestSellerItem">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_phone_best_seller"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_iv_phone_best_seller"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_circle_is_favorites_container"
+            style="@style/LikeBestSellerItem"
+            android:src="@drawable/circle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_like_best_seller"
+            style="@style/LikeImageViewBestSellerItem"
+            android:src="@drawable/not_like"
+            app:layout_constraintBottom_toBottomOf="@id/iv_circle_is_favorites_container"
+            app:layout_constraintEnd_toEndOf="@id/iv_circle_is_favorites_container"
+            app:layout_constraintStart_toStartOf="@id/iv_circle_is_favorites_container"
+            app:layout_constraintTop_toTopOf="@id/iv_circle_is_favorites_container" />
+
+        <TextView
+            android:id="@+id/tv_discount_price"
+            style="@style/DiscountPriceTextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_phone_best_seller" />
+
+        <TextView
+            android:id="@+id/tv_price_without_discount"
+            style="@style/PriceWithoutDiscountTextViewStyle"
+            app:layout_constraintBottom_toTopOf="@id/barrier_best_seller"
+            app:layout_constraintStart_toEndOf="@id/tv_discount_price" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_best_seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tv_discount_price,tv_price_without_discount" />
+
+        <TextView
+            android:id="@+id/tv_model_phone"
+            style="@style/ModelPhoneTextViewStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/barrier_best_seller" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_sheet_main_screen"
+    style="@style/ContainerCardViewMainScreenBottomSheetStyles"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/iv_close_container"
+            style="@style/CloseContainerImageViewMainScreenBottomSheetStyles"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            app:layout_constraintBottom_toBottomOf="@id/iv_close_container"
+            app:layout_constraintEnd_toEndOf="@+id/iv_close_container"
+            app:layout_constraintStart_toStartOf="@+id/iv_close_container"
+            app:layout_constraintTop_toTopOf="@+id/iv_close_container" />
+
+        <TextView
+            android:id="@+id/tv_filter_options"
+            style="@style/TitleTextViewMainScreenBottomSheetStyles"
+            android:text="@string/filter_options"
+            android:textSize="@dimen/text_size_bottom_sheet_main_screen"
+            app:layout_constraintBottom_toTopOf="@id/barrier_header_bottom_sheet_main_screen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_header_bottom_sheet_main_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="iv_close_container, tv_filter_options" />
+
+        <ImageView
+            android:id="@+id/iv_done_container"
+            style="@style/DoneContainerImageViewMainScreenBottomSheetStyles"
+            app:layout_constraintBottom_toBottomOf="@id/barrier_header_bottom_sheet_main_screen"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_done"
+            style="@style/DoneTextViewMainScreenBottomSheetStyles"
+            app:layout_constraintBottom_toBottomOf="@id/iv_done_container"
+            app:layout_constraintEnd_toEndOf="@+id/iv_done_container"
+            app:layout_constraintStart_toStartOf="@+id/iv_done_container"
+            app:layout_constraintTop_toTopOf="@+id/iv_done_container" />
+
+        <TextView
+            android:id="@+id/tv_brand"
+            style="@style/TitleTextViewMainScreenBottomSheetStyles"
+            android:layout_marginTop="@dimen/margin_top_tv_brand"
+            android:text="@string/brand"
+            app:layout_constraintStart_toStartOf="@id/barrier_start_bottom_sheet_main_screen"
+            app:layout_constraintTop_toBottomOf="@id/barrier_header_bottom_sheet_main_screen" />
+
+        <ImageView
+            style="@style/SpinnerImageViewMainScreenBottomSheetStyles"
+            android:src="@drawable/ic_background_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/barrier_start_bottom_sheet_main_screen"
+            app:layout_constraintTop_toBottomOf="@id/tv_brand" />
+
+        <Spinner
+            android:id="@+id/spinner_brand"
+            style="@style/SpinnerMainScreenBottomSheetStyles"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_brand" />
+
+        <TextView
+            android:id="@+id/tv_price"
+            style="@style/TitleTextViewMainScreenBottomSheetStyles"
+            android:layout_marginTop="@dimen/margin_top_tv_price"
+            android:text="@string/price"
+            app:layout_constraintStart_toStartOf="@id/barrier_start_bottom_sheet_main_screen"
+            app:layout_constraintTop_toBottomOf="@id/spinner_brand" />
+
+        <ImageView
+            style="@style/SpinnerImageViewMainScreenBottomSheetStyles"
+            android:src="@drawable/ic_background_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/barrier_start_bottom_sheet_main_screen"
+            app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+        <Spinner
+            android:id="@+id/spinner_price"
+            style="@style/SpinnerMainScreenBottomSheetStyles"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_price" />
+
+        <TextView
+            android:id="@+id/tv_size"
+            style="@style/TitleTextViewMainScreenBottomSheetStyles"
+            android:layout_marginTop="@dimen/margin_top_tv_size"
+            android:text="@string/size"
+            app:layout_constraintStart_toStartOf="@id/barrier_start_bottom_sheet_main_screen"
+            app:layout_constraintTop_toBottomOf="@id/spinner_price" />
+
+        <ImageView
+            style="@style/SpinnerImageViewMainScreenBottomSheetStyles"
+            android:src="@drawable/ic_background_spinner"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/barrier_start_bottom_sheet_main_screen"
+            app:layout_constraintTop_toBottomOf="@id/tv_size" />
+
+        <Spinner
+            android:id="@+id/spinner_size"
+            style="@style/SpinnerMainScreenBottomSheetStyles"
+            android:layout_marginBottom="@dimen/margin_bottom_spinner_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_size" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_start_bottom_sheet_main_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="start"
+            app:constraint_referenced_ids="iv_close_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

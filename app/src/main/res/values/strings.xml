@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">ShopApp</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_text">New</string>
+    <string name="buy_now">Buy now!</string>
+    <string name="category_phones">Phones</string>
+    <string name="category_computers">Computers</string>
+    <string name="category_heals">Heals</string>
+    <string name="category_books">Books</string>
+    <string name="select_category">Select Category</string>
+    <string name="view_all">view all</string>
+    <string name="search">Search</string>
+    <string name="hot_sales">Hot Sales</string>
+    <string name="best_seller">Best Seller</string>
+    <string name="empty">Empty</string>
+    <string name="explorer">Explorer</string>
+    <string name="brand">Brand</string>
+    <string name="size">Size</string>
+    <string name="price">Price</string>
+    <string name="done">Done</string>
+    <string name="filter_options">Filter options</string>
+    <string name="tv_location_text">Zihuatanejo, Gro</string>
+    <string name="see_more">see more</string>
+
+
+
+    <string-array name="brand_phone_array">
+        <item>Samsung</item>
+        <item>IPhone</item>
+        <item>Xiaomi</item>
+    </string-array>
+
+    <string-array name="price_phone_array">
+        <item>$0 - $10000</item>
+        <item>$0 - $5000</item>
+        <item>$5000 - $10000</item>
+    </string-array>
+
+    <string-array name="size_phone_array">
+        <item>4.5 to 5.5 inches</item>
+        <item>5.5 to 6.8 inches</item>
+        <item>0.0 to 6.8 inches</item>
+    </string-array>
+</resources>

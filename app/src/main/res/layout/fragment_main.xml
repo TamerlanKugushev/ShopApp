@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_container"
+        tools:context=".presentation.view.fragments.MainFragment">
+
+        <ScrollView
+            android:id="@+id/scroll_container"
+            android:layout_width="@dimen/zero"
+            android:layout_height="@dimen/zero"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/iv_geo"
+                    style="@style/GeoImageViewFragmentMainScreenStyle"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_header"
+                    app:layout_constraintEnd_toStartOf="@id/tv_geo"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_geo"
+                    style="@style/GeoTextViewFragmentMainScreenStyle"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_header"
+                    app:layout_constraintEnd_toStartOf="@id/iv_arrow_header"
+                    app:layout_constraintStart_toEndOf="@id/iv_geo" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_header"
+                    style="@style/ArrowHeaderImageViewFragmentMainScreenStyle"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_geo" />
+
+                <ImageView
+                    android:id="@+id/iv_filter"
+                    style="@style/FilterImageViewFragmentMainScreenStyle"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_header"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="iv_arrow_header,iv_geo,iv_filter,tv_geo" />
+
+                <TextView
+                    android:id="@+id/tv_select_category"
+                    style="@style/HeaderTextViewFragmentMainScreenStyle"
+                    android:layout_marginTop="@dimen/margin_top_select_category"
+                    android:layout_marginBottom="@dimen/margin_bottom_select_category"
+                    android:text="@string/select_category"
+                    app:layout_constraintBottom_toTopOf="@id/rv_category"
+                    app:layout_constraintEnd_toStartOf="@id/tv_see_more_select_category"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_geo" />
+
+                <TextView
+                    android:id="@+id/tv_see_more_select_category"
+                    style="@style/SeeMoreTextViewFragmentMainScreenStyle"
+                    android:text="@string/view_all"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_see_more_select_category"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_select_category" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_see_more_select_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="tv_select_category" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_rv_category"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_select_category"
+                    tools:listitem="@layout/item_categories_main_screen" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ed_search"
+                    style="@style/TextInputLayoutMainScreenStyle"
+                    app:startIconDrawable="@drawable/ic_search"
+                    android:hint="@string/search"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_container_for_search_menu"
+                    app:layout_constraintTop_toBottomOf="@id/rv_category"
+                    app:layout_constraintBottom_toTopOf="@id/tv_hot_sales">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textAppearance="@style/TextAppearanceTextInputLayoutHint"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/iv_container_for_search_menu"
+                    android:layout_width="@dimen/diameter_iv_container_for_search_menu"
+                    android:layout_height="@dimen/height_iv_container_for_search_menu"
+                    android:layout_marginTop="@dimen/margin_top_iv_container_for_search_menu"
+                    android:layout_marginEnd="@dimen/margin_end_iv_container_for_search_menu"
+                    app:tint="@color/orange"
+                    android:src="@drawable/circle"
+                    app:layout_constraintStart_toEndOf="@id/ed_search"
+                    app:layout_constraintTop_toBottomOf="@id/rv_category"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search_menu"
+                    app:layout_constraintTop_toTopOf="@id/iv_container_for_search_menu"
+                    app:layout_constraintStart_toStartOf="@id/iv_container_for_search_menu"
+                    app:layout_constraintBottom_toBottomOf="@id/iv_container_for_search_menu"
+                    app:layout_constraintEnd_toEndOf="@id/iv_container_for_search_menu"/>
+
+                <TextView
+                    android:id="@+id/tv_hot_sales"
+                    style="@style/HeaderTextViewFragmentMainScreenStyle"
+                    android:layout_marginTop="@dimen/margin_top_tv_hot_sales"
+                    android:text="@string/hot_sales"
+                    app:layout_constraintEnd_toStartOf="@id/tv_see_more_hot_sales"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ed_search" />
+
+                <TextView
+                    android:id="@+id/tv_see_more_hot_sales"
+                    style="@style/SeeMoreTextViewFragmentMainScreenStyle"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_see_more_hot_sales"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_hot_sales" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_see_more_hot_sales"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="tv_hot_sales" />
+
+                <com.yarolegovich.discretescrollview.DiscreteScrollView
+                    android:id="@+id/rv_hot_sales"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_rv_hot_sales"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_hot_sales"
+                    tools:listitem="@layout/item_hot_sales" />
+
+                <TextView
+                    android:id="@+id/tv_best_seller"
+                    style="@style/HeaderTextViewFragmentMainScreenStyle"
+                    android:layout_marginTop="@dimen/margin_top_tv_best_seller"
+                    android:text="@string/best_seller"
+                    app:layout_constraintEnd_toStartOf="@id/tv_see_more_best_seller"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_hot_sales" />
+
+                <TextView
+                    android:id="@+id/tv_see_more_best_seller"
+                    style="@style/SeeMoreTextViewFragmentMainScreenStyle"
+                    app:layout_constraintBottom_toTopOf="@id/barrier_see_more_best_seller"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_best_seller" />
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/barrier_see_more_best_seller"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="tv_best_seller" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_best_seller"
+                    style="@style/BestSellerRecyclerViewFragmentMainScreenStyle"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/barrier_see_more_best_seller"
+                    tools:listitem="@layout/item_best_seller" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/lists_products"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="tv_best_seller,tv_hot_sales,
+                tv_see_more_best_seller, tv_see_more_hot_sales,
+                rv_best_seller,rv_hot_sales" />
+
+                <com.google.android.material.progressindicator.CircularProgressIndicator
+                    android:id="@+id/loading_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:indeterminate="true"
+                    app:indicatorColor="@color/orange"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_category" />
+
+                <TextView
+                    android:id="@+id/tv_empty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/empty"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rv_category" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/navigation_view"
+            style="@style/NavigationViewFragmentMainScreenStyle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:id="@+id/container_for_view_navigation_view"
+                style="@style/LinearLayoutNavigationViewFragmentMainScreenStyle">
+
+                <ImageView
+                    android:id="@+id/circle_explorer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginEnd="@dimen/margin_end_circle_explorer"
+                    android:src="@drawable/circle" />
+
+                <TextView
+                    android:id="@+id/tv_explorer_navigation_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/explorer"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/auxiliary_text_size" />
+
+                <ImageView
+                    android:id="@+id/iv_shop_navigation_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/main_cart" />
+
+                <ImageView
+                    android:id="@+id/iv_favorites_navigation_view"
+                    android:layout_width="@dimen/width_iv_favorites"
+                    android:layout_height="@dimen/height_iv_favorites"
+                    android:layout_weight="1"
+                    android:src="@drawable/not_like"
+                    app:tint="@color/white" />
+
+                <ImageView
+                    android:id="@+id/iv_user_navigation_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_person" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <include
+        android:id="@+id/bottom_sheet"
+        layout="@layout/bottom_sheet_main_screen" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
